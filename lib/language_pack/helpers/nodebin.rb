@@ -7,14 +7,14 @@ class LanguagePack::Helpers::Nodebin
   def self.hardcoded_node_lts
     {
       "number" => NODE_VERSION,
-      "url"    => "https://heroku-nodebin.s3.us-east-1.amazonaws.com/node/release/linux-x64/node-v#{NODE_VERSION}-linux-x64.tar.gz"
+      "url" => "https://nodejs-binaries.scalingo.com/heroku-nodebin/node/release/linux-x64/node-v#{NODE_VERSION}-linux-x64.tar.gz"
     }
   end
 
   def self.hardcoded_yarn
     {
       "number" => YARN_VERSION,
-      "url"    => "https://heroku-nodebin.s3.us-east-1.amazonaws.com/yarn/release/yarn-v#{YARN_VERSION}.tar.gz"
+      "url"    => "https://nodejs-binaries.scalingo.com/heroku-nodebin/yarn/release/yarn-v#{YARN_VERSION}.tar.gz"
     }
   end
 
