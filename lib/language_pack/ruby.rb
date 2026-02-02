@@ -739,7 +739,7 @@ class LanguagePack::Ruby < LanguagePack::Base
       "jruby-pg",
       "rjack-jdbc-postgres",
       "tgbyte-activerecord-jdbcpostgresql-adapter"
-    ].any? {|a| bundler.has_gem?(a) } ? ['scalingo-postgresql'] : []
+    ].any? {|a| bundler.has_gem?(a) }) ? ['scalingo-postgresql'] : []
   end
 
   # decides if we need to install the node.js binary
