@@ -3,6 +3,22 @@
 ## [Unreleased]
 
 
+## [v347] - 2026-02-02
+
+- JRuby 10.0.3.0 is now available
+
+
+## [v346] - 2026-02-02
+
+- Add metric: Track apps with and without `BUNDLED WITH` in the `Gemfile.lock`
+- Default bundler version changed from `2.3.25` to `2.5.23`. Ruby's [standard version of bundler](https://stdgems.org/bundler/) will take precedence if it is greater than Heroku's installed version. When there is no `BUNDLED WITH` in the `Gemfile.lock`, then `bundle install` will use the highest version of Bundler available.
+
+## [v345] - 2026-01-26
+
+- Set `WEB_CONCURRENCY_SET_BY=heroku/ruby` if `WEB_CONCURRENCY` gets set in (deprecated) `SENSIBLE_DEFAULTS` mode (https://github.com/heroku/heroku-buildpack-ruby/pull/1700)
+- Default Node.js version now 24.13.0 (https://github.com/heroku/heroku-buildpack-ruby/pull/1704)
+- Fix yarn and nodejs version change warnings (https://github.com/heroku/heroku-buildpack-ruby/pull/1699)
+
 ## [v344] - 2026-01-14
 
 - Ruby 3.2.10 is now available
@@ -11,7 +27,6 @@
 ## [v343] - 2026-01-13
 
 - Ruby 4.0.1 is now available
-
 
 ## [v342] - 2026-01-09
 
@@ -1889,7 +1904,10 @@ Bugfixes:
 * Change gem detection to use lockfile parser
 * use `$RACK_ENV` when thin is detected for rack apps
 
-[unreleased]: https://github.com/heroku/heroku-buildpack-ruby/compare/v344...main
+[unreleased]: https://github.com/heroku/heroku-buildpack-ruby/compare/v347...main
+[v347]: https://github.com/heroku/heroku-buildpack-ruby/compare/v346...v347
+[v346]: https://github.com/heroku/heroku-buildpack-ruby/compare/v345...v346
+[v345]: https://github.com/heroku/heroku-buildpack-ruby/compare/v344...v345
 [v344]: https://github.com/heroku/heroku-buildpack-ruby/compare/v343...v344
 [v343]: https://github.com/heroku/heroku-buildpack-ruby/compare/v342...v343
 [v342]: https://github.com/heroku/heroku-buildpack-ruby/compare/v341...v342
