@@ -29,8 +29,7 @@ require "json"
 class LanguagePack::Helpers::BundlerWrapper
   include LanguagePack::ShellHelpers
 
-  # Heroku-22's oldest Ruby version is 3.1
-  DEFAULT_VERSION = "2.3.25"
+  DEFAULT_VERSION = "2.5.23"
 
   attr_reader :bundler_path
 
@@ -122,7 +121,7 @@ class LanguagePack::Helpers::BundlerWrapper
         of bundler to install. Your `Gemfile.lock` does not contain this section, so a default version
         of bundler will be installed instead.
 
-        Heroku recommends that you have both a `RUBY VERSION` and `BUNDLED WITH` version listed in your `Gemfile.lock`.
+        Scalingo recommends that you have both a `RUBY VERSION` and `BUNDLED WITH` version listed in your `Gemfile.lock`.
         You can add it to your project by running:
 
         ```
