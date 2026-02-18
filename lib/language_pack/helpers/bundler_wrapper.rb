@@ -29,20 +29,19 @@ require "json"
 class LanguagePack::Helpers::BundlerWrapper
   include LanguagePack::ShellHelpers
 
-  # Heroku-22's oldest Ruby version is 3.1
-  DEFAULT_VERSION = "2.3.25"
+  DEFAULT_VERSION = "2.5.23"
 
   attr_reader :bundler_path
 
   def initialize(
-      bundler_path:,
-      bundler_version:,
-      gemfile_path: Pathname.new("./Gemfile"),
-      report: HerokuBuildReport::GLOBAL
-    )
-    @report               = report
-    @gemfile_path         = gemfile_path
-    @gemfile_lock_path    = Pathname.new("#{@gemfile_path}.lock")
+    bundler_path:,
+    bundler_version:,
+    gemfile_path: Pathname.new("./Gemfile"),
+    report: HerokuBuildReport::GLOBAL
+  )
+    @report = report
+    @gemfile_path = gemfile_path
+    @gemfile_lock_path = Pathname.new("#{@gemfile_path}.lock")
 
     dot_ruby_version_file = @gemfile_lock_path.join("..").join(".ruby-version")
     @report.capture(
@@ -59,17 +58,17 @@ class LanguagePack::Helpers::BundlerWrapper
     @dir_name = "bundler-#{@version}"
 
     @bundler_path = Pathname(bundler_path)
-    @orig_bundle_gemfile  = ENV['BUNDLE_GEMFILE']
+    @orig_bundle_gemfile = ENV["BUNDLE_GEMFILE"]
   end
 
   def install
-    ENV['BUNDLE_GEMFILE'] = @gemfile_path.to_s
+    ENV["BUNDLE_GEMFILE"] = @gemfile_path.to_s
     fetch_bundler
     self
   end
 
   def clean
-    ENV['BUNDLE_GEMFILE'] = @orig_bundle_gemfile
+    ENV["BUNDLE_GEMFILE"] = @orig_bundle_gemfile
   end
 
   def has_gem?(name)
@@ -84,13 +83,9 @@ class LanguagePack::Helpers::BundlerWrapper
     @specs ||= specs_from_lockfile
   end
 
-  def version
-    @version
-  end
+  attr_reader :version
 
-  def dir_name
-    @dir_name
-  end
+  attr_reader :dir_name
 
   private def fetch_bundler
     return true if Dir.exist?(bundler_path.join("gems", dir_name))
@@ -114,7 +109,7 @@ class LanguagePack::Helpers::BundlerWrapper
     LanguagePack::Helpers::LockfileShellParser.call(lockfile_path: @gemfile_lock_path)
   end
 
-  def self.resolve_bundler_version(gemfile_lock:, warn_io: )
+  def self.resolve_bundler_version(gemfile_lock:, warn_io:)
     version = gemfile_lock.bundler.version
     if version
       version
@@ -126,7 +121,7 @@ class LanguagePack::Helpers::BundlerWrapper
         of bundler to install. Your `Gemfile.lock` does not contain this section, so a default version
         of bundler will be installed instead.
 
-        Heroku recommends that you have both a `RUBY VERSION` and `BUNDLED WITH` version listed in your `Gemfile.lock`.
+        Scalingo recommends that you have both a `RUBY VERSION` and `BUNDLED WITH` version listed in your `Gemfile.lock`.
         You can add it to your project by running:
 
         ```
