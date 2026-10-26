@@ -73,7 +73,6 @@ class LanguagePack::Rails3 < LanguagePack::Rails2
       warn(<<~WARNING)
         You set your `config.assets.compile = true` in production.
         This can negatively impact the performance of your application.
-
       WARNING
     end
   end
