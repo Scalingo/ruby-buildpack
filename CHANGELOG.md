@@ -3,6 +3,10 @@
 ## [Unreleased]
 
 
+## [v368] - 2026-11-19
+
+- Default Ruby version now 3.4.13 [#1790](https://github.com/heroku/heroku-buildpack-ruby/pull/1790)
+
 ## [v367] - 2026-11-12
 
 - Default Node.js version now 26.13.1 [#1784](https://github.com/heroku/heroku-buildpack-ruby/pull/1784)
@@ -1996,7 +2000,8 @@ Bugfixes:
 * Change gem detection to use lockfile parser
 * use `$RACK_ENV` when thin is detected for rack apps
 
-[unreleased]: https://github.com/heroku/heroku-buildpack-ruby/compare/v367...main
+[unreleased]: https://github.com/heroku/heroku-buildpack-ruby/compare/v368...main
+[v368]: https://github.com/heroku/heroku-buildpack-ruby/compare/v367...v368
 [v367]: https://github.com/heroku/heroku-buildpack-ruby/compare/v366...v367
 [v366]: https://github.com/heroku/heroku-buildpack-ruby/compare/v365...v366
 [v365]: https://github.com/heroku/heroku-buildpack-ruby/compare/v364...v365
